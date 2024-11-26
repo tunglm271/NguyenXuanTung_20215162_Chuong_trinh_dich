@@ -13,7 +13,6 @@ typedef enum {
   CHAR_DIGIT,
   CHAR_PLUS,
   CHAR_MINUS,
-  CHAR_MOD,
   CHAR_TIMES,
   CHAR_SLASH,
   CHAR_LT,

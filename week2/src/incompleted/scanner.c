@@ -29,7 +29,6 @@ void skipBlank() {
 
 void skipComment() {
   int state = 0;
-
   while ((currentChar != EOF) && (state < 2)) {
     switch (charCodes[currentChar]) {
     case CHAR_TIMES:
@@ -46,12 +45,6 @@ void skipComment() {
   }
   if (state != 2) 
     error(ERR_ENDOFCOMMENT, lineNo, colNo);
-}
-
-void skipLineComment() {
-  while (currentChar != EOF && currentChar != '\n') {
-    readChar();
-  }
 }
 
 Token* readIdentKeyword(void) {
@@ -144,23 +137,14 @@ Token* getToken(void) {
     token = makeToken(SB_MINUS, lineNo, colNo);
     readChar(); 
     return token;
-  case CHAR_MOD:
-      token = makeToken(SB_MOD, lineNo, colNo);
-      readChar();
-      return token;
   case CHAR_TIMES:
     token = makeToken(SB_TIMES, lineNo, colNo);
     readChar(); 
     return token;
- case CHAR_SLASH:
-      readChar();
-      if (currentChar == '/') {
-        skipLineComment();
-        return getToken();
-      } else {
-        token = makeToken(SB_SLASH, lineNo, colNo);
-        return token;
-      }
+  case CHAR_SLASH:
+    token = makeToken(SB_SLASH, lineNo, colNo);
+    readChar(); 
+    return token;
   case CHAR_LT:
     ln = lineNo;
     cn = colNo;
@@ -278,7 +262,6 @@ void printToken(Token *token) {
   case KW_VAR: printf("KW_VAR\n"); break;
   case KW_INTEGER: printf("KW_INTEGER\n"); break;
   case KW_CHAR: printf("KW_CHAR\n"); break;
-  case KW_STRING: printf("KW_STRING\n"); break;
   case KW_ARRAY: printf("KW_ARRAY\n"); break;
   case KW_OF: printf("KW_OF\n"); break;
   case KW_FUNCTION: printf("KW_FUNCTION\n"); break;
@@ -308,7 +291,6 @@ void printToken(Token *token) {
   case SB_PLUS: printf("SB_PLUS\n"); break;
   case SB_MINUS: printf("SB_MINUS\n"); break;
   case SB_TIMES: printf("SB_TIMES\n"); break;
-  case SB_MOD: printf("SB_MOD\n"); break;
   case SB_SLASH: printf("SB_SLASH\n"); break;
   case SB_LPAR: printf("SB_LPAR\n"); break;
   case SB_RPAR: printf("SB_RPAR\n"); break;
