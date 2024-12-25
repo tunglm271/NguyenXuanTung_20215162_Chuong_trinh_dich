@@ -1,0 +1,13 @@
+PROGRAM swap;
+VAR 
+    X: INTEGER;
+    Y: INTEGER;
+    Z: INTEGER;
+BEGIN
+    X := 10;
+    Y := 20;
+    Z := 30;
+    X, Y, Z := Y, Z, X;
+    CALL WRITEI(X);
+    CALL WRITEI(Y);
+END.

@@ -1,0 +1,12 @@
+PROGRAM sumTest;
+VAR 
+    X: INTEGER;
+    Y: INTEGER;
+    Z: CHAR;
+    RESULT: INTEGER;
+
+BEGIN
+    X := 10;
+    Y := 20;
+    RESULT := SUM X,Y,20,Z;
+END.

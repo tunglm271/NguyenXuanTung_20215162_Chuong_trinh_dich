@@ -1,0 +1,11 @@
+PROGRAM sumTest;
+VAR 
+    X: INTEGER;
+    Y: INTEGER;
+    RESULT: INTEGER;
+
+BEGIN
+    X := 10;
+    Y := 20;
+    RESULT := SUM X,Y,20, X/Y;
+END.
