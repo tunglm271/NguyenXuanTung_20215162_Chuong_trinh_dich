@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -37,22 +37,21 @@ void compileStatements(void);
 void compileStatement(void);
 Type* compileLValue(void);
 void compileAssignSt(void);
-void compileGroupAssignSt(Type* type_1st);
 void compileCallSt(void);
 void compileGroupSt(void);
 void compileIfSt(void);
 void compileElseSt(void);
 void compileWhileSt(void);
-void compileDoWhileSt(void);
 void compileForSt(void);
 void compileArgument(Object* param);
 void compileArguments(ObjectNode* paramList);
 void compileCondition(void);
 Type* compileExpression(void);
+void compileExpressionList(Type *expressionTypes[], int *expressionCount);
 Type* compileExpression2(void);
-Type* compileExpression3(void);
+void compileExpression3(void);
 Type* compileTerm(void);
-Type* compileTerm2(Type*);
+void compileTerm2(void);
 Type* compileFactor(void);
 Type* compileIndexes(Type* arrayType);
 

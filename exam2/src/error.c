@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -8,23 +8,14 @@
 #include <stdlib.h>
 #include "error.h"
 
-#define NUM_OF_ERRORS 31
-
-
-/*
-Phần thêm string:
-  -Thêm error : ERR_NO_ENDED_STRING
-Phần thêm lệnh gán nhiều biến:
-  -Thêm ERR_ELEMENTS_COUNT_INCONSISTENCY
-*/
+#define NUM_OF_ERRORS 32
 
 struct ErrorMessage {
   ErrorCode errorCode;
   char *message;
 };
 
-struct ErrorMessage errors[31] = {
-  {ERR_NO_ENDED_STRING, "The string has no end point"},
+struct ErrorMessage errors[32] = {
   {ERR_END_OF_COMMENT, "End of comment expected."},
   {ERR_IDENT_TOO_LONG, "Identifier too long."},
   {ERR_INVALID_CONSTANT_CHAR, "Invalid char constant."},
@@ -53,15 +44,17 @@ struct ErrorMessage errors[31] = {
   {ERR_UNDECLARED_PROCEDURE, "Undeclared procedure."},
   {ERR_DUPLICATE_IDENT, "Duplicate identifier."},
   {ERR_TYPE_INCONSISTENCY, "Type inconsistency"},
-  {ERR_ELEMENTS_COUNT_INCONSISTENCY, "Elements count inconsistency"},
-  {ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY, "The number of arguments and the number of parameters are inconsistent."}
+  {ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY, "The number of arguments and the number of parameters are inconsistent."},
+  {ERR_TOO_MANY_EXPRESSIONS, "Too many expressions on the right side."},
+  {ERR_TOO_FEW_EXPRESSIONS, "Too few expressions on the right side."},
+  {ERR_CONSTANT_ASSIGN, "Cannot assign to a constant."},
 };
 
 void error(ErrorCode err, int lineNo, int colNo) {
   int i;
-  for (i = 0 ; i < NUM_OF_ERRORS; i ++) 
+  for (i = 0 ; i < NUM_OF_ERRORS; i ++)
     if (errors[i].errorCode == err) {
-      printf("%d-%d:%s\n", lineNo, colNo, errors[i].message);
+      printf("\n%d-%d:%s\n", lineNo, colNo, errors[i].message);
       exit(0);
     }
 }

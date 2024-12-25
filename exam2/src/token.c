@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -18,8 +18,6 @@ struct {
   {"VAR", KW_VAR},
   {"INTEGER", KW_INTEGER},
   {"CHAR", KW_CHAR},
-  {"STRING", KW_STRING},
-  {"DOUBLE", KW_DOUBLE},
   {"ARRAY", KW_ARRAY},
   {"OF", KW_OF},
   {"FUNCTION", KW_FUNCTION},
@@ -48,7 +46,7 @@ int keywordEq(char *kw, char *string) {
 TokenType checkKeyword(char *string) {
   int i;
   for (i = 0; i < KEYWORDS_COUNT; i++)
-    if (keywordEq(keywords[i].string, string)) 
+    if (keywordEq(keywords[i].string, string))
       return keywords[i].tokenType;
   return TK_NONE;
 }
@@ -67,8 +65,6 @@ char *tokenToString(TokenType tokenType) {
   case TK_IDENT: return "an identification";
   case TK_NUMBER: return "a number";
   case TK_CHAR: return "a constant char";
-  case TK_STRING: return "a string";
-  case TK_DOUBLE: return "a double value";
   case TK_EOF: return "end of file";
 
   case KW_PROGRAM: return "keyword PROGRAM";
@@ -77,8 +73,6 @@ char *tokenToString(TokenType tokenType) {
   case KW_VAR: return "keyword VAR";
   case KW_INTEGER: return "keyword INTEGER";
   case KW_CHAR: return "keyword CHAR";
-  case KW_STRING: return "keyword STRING";
-  case KW_DOUBLE: return "keyword DOUBLE";
   case KW_ARRAY: return "keyword ARRAY";
   case KW_OF: return "keyword OF";
   case KW_FUNCTION: return "keyword FUNCTION";

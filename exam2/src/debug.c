@@ -7,12 +7,6 @@
 #include <stdio.h>
 #include "debug.h"
 
-/*
-Phần thêm String:
-  -Thêm case TP_STRING vào hàm printType()
-Phần thêm Double:
-  -Thêm case TP_DOUBLE vào hàm printType()
-*/
 void pad(int n) {
   int i;
   for (i = 0; i < n ; i++) printf(" ");
@@ -25,12 +19,6 @@ void printType(Type* type) {
     break;
   case TP_CHAR:
     printf("Char");
-    break;
-  case TP_STRING:
-    printf("String");
-    break;
-  case TP_DOUBLE:
-    printf("Double");
     break;
   case TP_ARRAY:
     printf("Arr(%d,",type->arraySize);

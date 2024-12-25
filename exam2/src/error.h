@@ -1,4 +1,4 @@
-/* 
+/*
  * @copyright (c) 2008, Hedspi, Hanoi University of Technology
  * @author Huu-Duc Nguyen
  * @version 1.0
@@ -8,17 +8,8 @@
 #define __ERROR_H__
 #include "token.h"
 
-
-/*
-Phần thêm string:
-  -Thêm error : ERR_NO_ENDED_STRING
-Phần thêm lệnh gán nhiều biến:
-  -Thêm ERR_ELEMENTS_COUNT_INCONSISTENCY
-*/
-
 typedef enum {
   ERR_END_OF_COMMENT,
-  ERR_NO_ENDED_STRING,
   ERR_IDENT_TOO_LONG,
   ERR_INVALID_CONSTANT_CHAR,
   ERR_INVALID_SYMBOL,
@@ -46,8 +37,10 @@ typedef enum {
   ERR_UNDECLARED_PROCEDURE,
   ERR_DUPLICATE_IDENT,
   ERR_TYPE_INCONSISTENCY,
-  ERR_ELEMENTS_COUNT_INCONSISTENCY,
-  ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY
+  ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY,
+  ERR_TOO_MANY_EXPRESSIONS,
+  ERR_TOO_FEW_EXPRESSIONS,
+  ERR_CONSTANT_ASSIGN
 } ErrorCode;
 
 void error(ErrorCode err, int lineNo, int colNo);
