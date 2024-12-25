@@ -4,6 +4,6 @@ VAR  a:INTEGER;
      b:INTEGER;
 
 BEGIN
-  a,b := b,a;
+  a,b := b;
   CALL WRITEI(a);
 END.
