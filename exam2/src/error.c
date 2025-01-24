@@ -44,7 +44,7 @@ struct ErrorMessage errors[32] = {
   {ERR_UNDECLARED_PROCEDURE, "Undeclared procedure."},
   {ERR_DUPLICATE_IDENT, "Duplicate identifier."},
   {ERR_TYPE_INCONSISTENCY, "Type inconsistency"},
-  {ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY, "The number of arguments and the number of parameters are inconsistent."},
+  {ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY, "The number of arguments and the number of parameters aren't equal."},
   {ERR_TOO_MANY_EXPRESSIONS, "Too many expressions on the right side."},
   {ERR_TOO_FEW_EXPRESSIONS, "Too few expressions on the right side."},
   {ERR_CONSTANT_ASSIGN, "Cannot assign to a constant."},

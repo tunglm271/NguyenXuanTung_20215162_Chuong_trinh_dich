@@ -509,10 +509,11 @@ void compileAssignSt(void)
 
   compileExpressionList(expressionTypes, &expressionCount);
 
-  if (lvalueCount < expressionCount)
-    error(ERR_TOO_MANY_EXPRESSIONS, currentToken->lineNo, currentToken->colNo);
-  if (lvalueCount > expressionCount)
-    error(ERR_TOO_FEW_EXPRESSIONS, currentToken->lineNo, currentToken->colNo);
+
+  if(lvalueCount != expressionCount) {
+    error(ERR_PARAMETERS_ARGUMENTS_INCONSISTENCY, currentToken->lineNo, currentToken->colNo);
+  }
+
 
   for (int i = 0; i < lvalueCount; i++) {
     checkTypeEquality(lvalueTypes[i], expressionTypes[i]);
